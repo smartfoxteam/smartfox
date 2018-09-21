@@ -1,0 +1,26 @@
+[Unit]
+Description=FOX's distributed currency daemon
+After=network.target
+
+[Service]
+User=fox
+Group=fox
+
+Type=forking
+PIDFile=/var/lib/foxd/foxd.pid
+
+ExecStart=/usr/bin/foxd -daemon -pid=/var/lib/foxd/foxd.pid \
+          -conf=/etc/fox/fox.conf -datadir=/var/lib/foxd
+
+ExecStop=-/usr/bin/fox-cli -conf=/etc/fox/fox.conf \
+         -datadir=/var/lib/foxd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

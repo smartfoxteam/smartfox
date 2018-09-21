@@ -1,0 +1,26 @@
+# /etc/conf.d/foxd: config file for /etc/init.d/foxd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/fox/fox.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/foxd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/foxd.pid"
+
+# Where to write foxd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/foxd"
+
+# User and group to own foxd process
+#BITCOIND_USER="fox"
+#BITCOIND_GROUP="fox"
+
+# Path to foxd executable
+#BITCOIND_BIN="/usr/bin/foxd"
+
+# Nice value to run foxd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
